@@ -299,3 +299,13 @@ type TokenDayData @entity {
   # price stats
   priceUSD: BigDecimal!
 }
+
+type LPTransferEntity @entity {
+  "unique identifier and primary key of the entity"
+  id: ID!
+  tokenAddress: Bytes! #address
+  from: Bytes! # address
+  to: Bytes! # address
+  value: BigInt!
+  timestamp: BigInt!
+}

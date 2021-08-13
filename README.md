@@ -1,4 +1,9 @@
-# Uniswap V2 Subgraph
+# La Cucina | Uniswap V2 Subgraph
+
+La Cucina redefines DeFi!
+In the mood for a Unicorn hunt? Gain even more Yields in Uniswap through La Cucina.
+
+##  Uniswap V2 Subgraph
 
 [Uniswap](https://uniswap.org/) is a decentralized protocol for automated token exchange on Ethereum.
 

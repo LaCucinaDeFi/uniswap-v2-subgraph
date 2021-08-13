@@ -8,6 +8,7 @@ import {
   Mint as MintEvent,
   Burn as BurnEvent,
   Swap as SwapEvent,
+  LPTransferEntity as TransferEvent,
   Bundle
 } from '../types/schema'
 import { Pair as PairContract, Mint, Burn, Swap, Transfer, Sync } from '../types/templates/Pair/Pair'
@@ -206,6 +207,18 @@ export function handleTransfer(event: Transfer): void {
     toUserLiquidityPosition.save()
     createLiquiditySnapshot(toUserLiquidityPosition, event)
   }
+
+  let transferEntity = new TransferEvent(event.transaction.index.toHex() + '_' + event.transaction.hash.toHex());
+
+  // assign event data to transfer entity
+  transferEntity.from = event.params.from;
+  transferEntity.tokenAddress = event.address;
+  transferEntity.to = event.params.to;
+  transferEntity.value = event.params.value;
+  transferEntity.timestamp = event.block.timestamp;
+
+  // save entity in store
+  transferEntity.save();
 
   transaction.save()
 }
