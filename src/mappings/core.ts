@@ -208,7 +208,7 @@ export function handleTransfer(event: Transfer): void {
     createLiquiditySnapshot(toUserLiquidityPosition, event)
   }
 
-  let transferEntity = new TransferEvent(event.transaction.index.toHex() + '_' + event.transaction.hash.toHex());
+  let transferEntity = new TransferEvent(event.transaction.index.toHexString() + '_' + event.transaction.hash.toHexString());
 
   // assign event data to transfer entity
   transferEntity.from = event.params.from;
